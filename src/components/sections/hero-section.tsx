@@ -21,9 +21,9 @@ const HeroSection = () => {
         </FadeIn>
         <FadeIn className="md:w-1/2 flex justify-center">
           <Image
-            src="https://res.cloudinary.com/dazw9kv1l/image/upload/v1722872365/digital_agency_laptop_phone_p2qj8k.png"
-            alt="A conceptual image of digital technology and growth."
-            data-ai-hint="digital agency laptop phone"
+            src="https://res.cloudinary.com/dazw9kv1l/image/upload/v1722883363/sarafra-hero-image_kclxlm.png"
+            alt="A team of professionals from SarAfra Technologies collaborating on a software project."
+            data-ai-hint="software development team"
             width={600}
             height={400}
             className="rounded-lg shadow-2xl w-full max-w-lg md:max-w-none"
