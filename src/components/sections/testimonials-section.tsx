@@ -34,7 +34,7 @@ const TestimonialsSection = () => {
             We are proud of the relationships we build and the results we deliver.
           </p>
         </FadeIn>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <FadeIn key={index} className="flex">
               <Card className="p-6 flex flex-col justify-between bg-background">

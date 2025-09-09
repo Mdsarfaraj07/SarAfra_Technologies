@@ -53,7 +53,7 @@ const PaymentSection = () => {
     <button
       onClick={() => setActiveTab(id)}
       className={cn(
-        'px-4 py-2 font-semibold text-muted-foreground rounded-t-lg transition-colors duration-200 focus:outline-none',
+        'px-2 sm:px-4 py-2 text-xs sm:text-sm font-semibold text-muted-foreground rounded-t-lg transition-colors duration-200 focus:outline-none whitespace-nowrap',
         { 'text-foreground bg-card border-b-2 border-accent': activeTab === id }
       )}
     >
@@ -84,7 +84,7 @@ Total: $${invoiceDetails.totalAmount.toLocaleString()}
         <section id="payment" className="py-16 md:py-24">
              <div className="container mx-auto px-4 text-center">
                 <FadeIn>
-                    <div id="invoice-container" className="max-w-3xl mx-auto card p-8 rounded-lg shadow-md text-left mt-12">
+                    <div id="invoice-container" className="max-w-3xl mx-auto bg-card p-4 sm:p-8 rounded-lg shadow-md text-left mt-12">
                         <div id="invoice-print-area">
                             <div className="text-center mb-8">
                                 <h3 className="text-2xl font-bold gradient-text">Invoice</h3>
@@ -131,7 +131,7 @@ Total: $${invoiceDetails.totalAmount.toLocaleString()}
                                 Thank you for your business!
                             </div>
                         </div>
-                        <div className="mt-8 flex justify-center space-x-4">
+                        <div className="mt-8 flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-4">
                             <Button onClick={() => window.print()} className="btn-primary rounded-full"><Printer className="mr-2 h-4 w-4" />Print Invoice</Button>
                             <Button onClick={copyToClipboard} className="btn-primary rounded-full"><Copy className="mr-2 h-4 w-4" />Copy Details</Button>
                         </div>
@@ -150,8 +150,8 @@ Total: $${invoiceDetails.totalAmount.toLocaleString()}
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">Complete your payment securely. We accept all major payment methods.</p>
         </FadeIn>
         <FadeIn>
-            <Card className="max-w-xl mx-auto p-8 text-left">
-                <div className="flex space-x-1 border-b mb-6">
+            <Card className="max-w-xl mx-auto p-4 sm:p-8 text-left">
+                <div className="flex space-x-1 border-b mb-6 overflow-x-auto">
                     <TabButton id="card" label="Credit Card" />
                     <TabButton id="upi" label="UPI / QR Code" />
                     <TabButton id="ewallet" label="E-Wallet" />

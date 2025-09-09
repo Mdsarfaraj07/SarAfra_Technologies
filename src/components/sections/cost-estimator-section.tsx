@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -53,7 +53,7 @@ const CostEstimatorSection = () => {
           </p>
         </FadeIn>
         <FadeIn>
-          <Card className="max-w-3xl mx-auto p-8 text-left">
+          <Card className="max-w-3xl mx-auto p-6 md:p-8 text-left">
             <form id="estimator-form">
               <div className="mb-6">
                 <Label className="block font-medium mb-2">1. Select Project Type</Label>

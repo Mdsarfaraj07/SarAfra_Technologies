@@ -26,7 +26,7 @@ const AboutUsSection = () => {
             We are committed to delivering exceptional results and building long-term partnerships.
           </p>
         </FadeIn>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
           {reasons.map((reason, index) => (
             <FadeIn key={index} className="flex">
               <Card className="hover:border-primary/50 transition-all duration-300 flex flex-col w-full bg-background hover:-translate-y-2">
