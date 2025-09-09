@@ -10,7 +10,7 @@ const otherTeamMembers = [
 ];
 
 const founderImages = [
-  { src: 'https://res.cloudinary.com/dazw9kv1l/image/upload/v1722864775/sarafraj_a_founder_ceo_portrait_image_z1gy3n.png', alt: 'Portrait of Sarfaraj A. 1' },
+  { src: '/sarafra-ceo.png', alt: 'Portrait of Sarfaraj A. 1' },
   { src: 'https://res.cloudinary.com/dazw9kv1l/image/upload/v1722864878/sarafraj_a_founder_ceo_portrait_image_2_r4yqja.png', alt: 'Portrait of Sarfaraj A. 2' },
   { src: 'https://res.cloudinary.com/dazw9kv1l/image/upload/v1722864930/sarafraj_a_founder_ceo_portrait_image_3_pcec2j.png', alt: 'Portrait of Sarfaraj A. 3' },
 ];
