@@ -40,7 +40,7 @@ const PaymentSection = () => {
     // In a real app, this would use data from the cost estimator
     const generatedInvoice = {
         clientName: 'Client Name', // Placeholder
-        clientEmail: 'client@example.com', // Placeholder
+        clientEmail: 'mdsarfaraj9886@gmail.com',
         invoiceNumber: `INV-${Math.floor(1000 + Math.random() * 9000)}`,
         invoiceDate: new Date().toLocaleDateString(),
         items: [{ name: 'Project Estimate', amount: 15000 }], // Placeholder
