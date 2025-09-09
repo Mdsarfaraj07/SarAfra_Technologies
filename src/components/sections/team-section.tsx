@@ -4,9 +4,9 @@ import { FadeIn } from '../fade-in';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 const otherTeamMembers = [
-  { name: 'Frank L.', role: 'Lead Software Architect', image: { src: 'https://picsum.photos/seed/frank/128/128', hint: 'man portrait' } },
-  { name: 'Jane Doe', role: 'Head of Digital Marketing', image: { src: 'https://picsum.photos/seed/jane/128/128', hint: 'woman portrait professional' } },
-  { name: 'Mike R.', role: 'Senior UI/UX Designer', image: { src: 'https://picsum.photos/seed/mike/128/128', hint: 'man portrait professional' } },
+  { name: 'Frank L.', role: 'Lead Software Architect', image: { src: 'https://res.cloudinary.com/dazw9kv1l/image/upload/v1722872365/man_portrait_vstwto.png', hint: 'man portrait' } },
+  { name: 'Jane Doe', role: 'Head of Digital Marketing', image: { src: 'https://res.cloudinary.com/dazw9kv1l/image/upload/v1722872366/woman_portrait_professional_uvx3wz.png', hint: 'woman portrait professional' } },
+  { name: 'Mike R.', role: 'Senior UI/UX Designer', image: { src: 'https://res.cloudinary.com/dazw9kv1l/image/upload/v1722872365/man_portrait_professional_pnpw2g.png', hint: 'man portrait professional' } },
 ];
 
 const founderImages = [
