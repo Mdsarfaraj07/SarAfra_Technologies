@@ -60,6 +60,24 @@ export const UiUxDesignIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
+export const CloudSolutionsIcon = (props: SVGProps<SVGSVGElement>) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-accent mb-4 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" {...props}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+    </svg>
+);
+
+export const AiIntegrationIcon = (props: SVGProps<SVGSVGElement>) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-accent mb-4 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" {...props}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+    </svg>
+);
+
+export const SeoOptimizationIcon = (props: SVGProps<SVGSVGElement>) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-accent mb-4 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" {...props}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 10.5h.01" />
+    </svg>
+);
+
 
 export const TwitterIcon = (props: SVGProps<SVGSVGElement>) => (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" viewBox="0 0 24 24" fill="currentColor" {...props}>

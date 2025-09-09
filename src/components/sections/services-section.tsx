@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { SoftwareDevelopmentIcon, DigitalMarketingIcon, UiUxDesignIcon } from '../icons';
+import { SoftwareDevelopmentIcon, DigitalMarketingIcon, UiUxDesignIcon, CloudSolutionsIcon, AiIntegrationIcon, SeoOptimizationIcon } from '../icons';
 import { FadeIn } from '../fade-in';
 
 const services = [
@@ -17,6 +17,21 @@ const services = [
     icon: UiUxDesignIcon,
     title: 'UI/UX Design',
     description: 'Creating intuitive and beautiful interfaces that engage your users.',
+  },
+  {
+    icon: CloudSolutionsIcon,
+    title: 'Cloud Solutions',
+    description: 'Scalable and secure cloud infrastructure setup and management on AWS, GCP, or Azure.',
+  },
+  {
+    icon: AiIntegrationIcon,
+    title: 'AI Integration',
+    description: 'Leverage the power of AI by integrating smart features into your applications.',
+  },
+  {
+    icon: SeoOptimizationIcon,
+    title: 'SEO Optimization',
+    description: 'Improve your search engine rankings and drive organic traffic to your website.',
   },
 ];
 
