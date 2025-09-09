@@ -21,3 +21,4 @@ requiredAPIs:
   - serviceName: firebasestorage.googleapis.com
   - serviceName: secretmanager.googleapis.com
   - serviceName: aiplatform.googleapis.com
+  - serviceName: generativelanguage.googleapis.com
