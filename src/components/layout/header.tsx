@@ -25,13 +25,32 @@ const Header = () => {
     <header className="bg-background/80 shadow-md sticky top-0 z-50 backdrop-blur-sm">
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
         <a href="#" className="flex items-center space-x-2">
-          <Image
-            src="https://storage.googleapis.com/aifirebase/prod/images/theme/62657e05-23e4-411a-a53b-e8574164ce1f.png"
-            alt="SarAfra Technologies Logo"
-            width={32}
-            height={32}
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 100 100"
+            xmlns="http://www.w3.org/2000/svg"
             className="h-8 w-auto"
-          />
+          >
+            <defs>
+              <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style={{ stopColor: 'hsl(var(--primary))' }} />
+                <stop offset="100%" style={{ stopColor: 'hsl(var(--accent))' }} />
+              </linearGradient>
+            </defs>
+            <rect width="100" height="100" rx="15" fill="url(#logoGradient)" />
+            <text
+              x="50%"
+              y="50%"
+              dy=".3em"
+              textAnchor="middle"
+              fontSize="50"
+              fontWeight="bold"
+              fill="white"
+            >
+              SA
+            </text>
+          </svg>
           <span className="text-2xl font-bold gradient-text">SarAfra Technologies</span>
         </a>
 
