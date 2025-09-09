@@ -8,6 +8,7 @@ import { Send, Mic, MicOff } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { intelligentChatResponses } from '@/ai/flows/intelligent-chat-responses';
 import { textToSpeech } from '@/ai/flows/text-to-speech';
+import { useToast } from '@/hooks/use-toast';
 
 declare global {
   interface Window {
@@ -29,6 +30,7 @@ const Chatbot = () => {
   const [isListening, setIsListening] = useState(false);
   const recognitionRef = useRef<any>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const { toast } = useToast();
 
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
@@ -58,7 +60,20 @@ const Chatbot = () => {
       };
 
       recognition.onerror = (event: any) => {
-        console.error('Speech recognition error:', event.error);
+        if (event.error === 'no-speech') {
+          toast({
+            variant: 'destructive',
+            title: 'No speech detected',
+            description: 'Please make sure your microphone is working and try again.',
+          });
+        } else {
+          console.error('Speech recognition error:', event.error);
+          toast({
+            variant: 'destructive',
+            title: 'Speech Recognition Error',
+            description: 'An error occurred with speech recognition.',
+          });
+        }
         setIsListening(false);
       };
       
@@ -68,7 +83,7 @@ const Chatbot = () => {
 
       recognitionRef.current = recognition;
     }
-  }, []);
+  }, [toast]);
 
   const handleToggleListening = () => {
     if (isListening) {
