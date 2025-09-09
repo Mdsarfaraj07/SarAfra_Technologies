@@ -120,12 +120,9 @@ const Chatbot = () => {
       const botMessage: Message = { role: 'bot', text: response.response };
       setMessages((prev) => [...prev.slice(0, -1), botMessage]);
 
-      try {
-        const ttsResponse = await textToSpeech({ text: response.response });
+      const ttsResponse = await textToSpeech({ text: response.response });
+      if (ttsResponse.audioDataUri) {
         playAudio(ttsResponse.audioDataUri);
-      } catch (ttsError) {
-        console.error('Text-to-speech failed:', ttsError);
-        // Fail silently and don't play audio if TTS service fails.
       }
 
     } catch (error) {

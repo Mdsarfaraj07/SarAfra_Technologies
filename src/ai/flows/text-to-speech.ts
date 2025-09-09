@@ -5,7 +5,7 @@
  *
  * This file exports:
  * - `textToSpeech`: An async function that takes text and returns an audio data URI.
- * - `TextToSpeechInput`: The input type for the textToSpeech function.
+ * - `TextToSpeechInput`: The input type for the textTospeech function.
  * - `TextToSpeechOutput`: The output type for the textToSpeech function.
  */
 
@@ -19,7 +19,7 @@ const TextToSpeechInputSchema = z.object({
 export type TextToSpeechInput = z.infer<typeof TextToSpeechInputSchema>;
 
 const TextToSpeechOutputSchema = z.object({
-  audioDataUri: z.string().describe("The generated audio as a data URI. Expected format: 'data:audio/wav;base64,<encoded_data>'."),
+  audioDataUri: z.string().nullable().describe("The generated audio as a data URI. Expected format: 'data:audio/wav;base64,<encoded_data>'. Can be null if TTS fails."),
 });
 export type TextToSpeechOutput = z.infer<typeof TextToSpeechOutputSchema>;
 
@@ -56,28 +56,35 @@ const textToSpeechFlow = ai.defineFlow(
     outputSchema: TextToSpeechOutputSchema,
   },
   async ({ text }) => {
-    const { media } = await ai.generate({
-      model: 'googleai/gemini-2.5-flash-preview-tts',
-      config: {
-        responseModalities: ['AUDIO'],
-        speechConfig: {
-          voiceConfig: {
-            prebuiltVoiceConfig: { voiceName: 'Algenib' },
+    try {
+      const { media } = await ai.generate({
+        model: 'googleai/gemini-2.5-flash-preview-tts',
+        config: {
+          responseModalities: ['AUDIO'],
+          speechConfig: {
+            voiceConfig: {
+              prebuiltVoiceConfig: { voiceName: 'Algenib' },
+            },
           },
         },
-      },
-      prompt: text,
-    });
+        prompt: text,
+      });
 
-    if (!media) {
-      throw new Error('No audio was generated from the text.');
+      if (!media) {
+         console.warn('No audio was generated from the text.');
+         return { audioDataUri: null };
+      }
+
+      const audioBuffer = Buffer.from(media.url.substring(media.url.indexOf(',') + 1), 'base64');
+      const wavBase64 = await toWav(audioBuffer);
+
+      return {
+        audioDataUri: `data:audio/wav;base64,${wavBase64}`,
+      };
+    } catch(error: any) {
+        // This is likely a rate-limiting error. We can fail gracefully.
+        console.error("Text-to-speech service failed:", error.message);
+        return { audioDataUri: null };
     }
-
-    const audioBuffer = Buffer.from(media.url.substring(media.url.indexOf(',') + 1), 'base64');
-    const wavBase64 = await toWav(audioBuffer);
-
-    return {
-      audioDataUri: `data:audio/wav;base64,${wavBase64}`,
-    };
   }
 );
