@@ -4,9 +4,17 @@ import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Send } from 'lucide-react';
+import { Send, Mic, MicOff } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { intelligentChatResponses } from '@/ai/flows/intelligent-chat-responses';
+import { textToSpeech } from '@/ai/flows/text-to-speech';
+
+declare global {
+  interface Window {
+    SpeechRecognition: any;
+    webkitSpeechRecognition: any;
+  }
+}
 
 type Message = {
   role: 'user' | 'bot' | 'loading';
@@ -18,6 +26,10 @@ const Chatbot = () => {
     { role: 'bot', text: "Hello! I'm a virtual assistant for SarAfra Technologies. How can I help you today?" },
   ]);
   const [input, setInput] = useState('');
+  const [isListening, setIsListening] = useState(false);
+  const recognitionRef = useRef<any>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -30,19 +42,71 @@ const Chatbot = () => {
     scrollToBottom();
   }, [messages]);
 
-  const handleSend = async () => {
-    if (input.trim() === '') return;
+  useEffect(() => {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SpeechRecognition) {
+      const recognition = new SpeechRecognition();
+      recognition.continuous = false;
+      recognition.lang = 'en-US';
+      recognition.interimResults = false;
 
-    const userMessage: Message = { role: 'user', text: input };
+      recognition.onresult = (event: any) => {
+        const transcript = event.results[0][0].transcript;
+        setInput(transcript);
+        handleSend(transcript);
+        setIsListening(false);
+      };
+
+      recognition.onerror = (event: any) => {
+        console.error('Speech recognition error:', event.error);
+        setIsListening(false);
+      };
+      
+      recognition.onend = () => {
+        setIsListening(false);
+      }
+
+      recognitionRef.current = recognition;
+    }
+  }, []);
+
+  const handleToggleListening = () => {
+    if (isListening) {
+      recognitionRef.current?.stop();
+      setIsListening(false);
+    } else {
+      recognitionRef.current?.start();
+      setIsListening(true);
+    }
+  };
+  
+  const playAudio = (audioDataUri: string) => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+    }
+    const audio = new Audio(audioDataUri);
+    audioRef.current = audio;
+    audio.play();
+  };
+
+  const handleSend = async (text?: string) => {
+    const messageText = text || input;
+    if (messageText.trim() === '') return;
+
+    const userMessage: Message = { role: 'user', text: messageText };
     const loadingMessage: Message = { role: 'loading', text: '...' };
 
     setMessages((prev) => [...prev, userMessage, loadingMessage]);
-    setInput('');
+    if(!text) setInput('');
     
     try {
-      const response = await intelligentChatResponses({ userPrompt: input });
+      const response = await intelligentChatResponses({ userPrompt: messageText });
       const botMessage: Message = { role: 'bot', text: response.response };
       setMessages((prev) => [...prev.slice(0, -1), botMessage]);
+
+      const ttsResponse = await textToSpeech({ text: response.response });
+      playAudio(ttsResponse.audioDataUri);
+
     } catch (error) {
       console.error('Error getting response from AI:', error);
       const errorMessage: Message = { role: 'bot', text: 'Sorry, I am having trouble connecting. Please try again later.' };
@@ -71,15 +135,25 @@ const Chatbot = () => {
         <Input
           type="text"
           id="chat-input"
-          placeholder="Type your message..."
+          placeholder="Type your message or use the mic..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-          className="flex-grow rounded-r-none focus-visible:ring-offset-0 focus-visible:ring-1"
+          className="flex-grow focus-visible:ring-offset-0 focus-visible:ring-1"
         />
+        {recognitionRef.current && (
+          <Button
+            onClick={handleToggleListening}
+            className={cn('p-3', isListening ? 'btn-primary' : '')}
+            variant={isListening ? "default" : "ghost"}
+            aria-label={isListening ? 'Stop listening' : 'Start listening'}
+          >
+            {isListening ? <MicOff className="h-5 w-5" /> : <Mic className="h-5 w-5" />}
+          </Button>
+        )}
         <Button
           id="chat-send-btn"
-          onClick={handleSend}
+          onClick={() => handleSend()}
           className="rounded-l-none btn-primary p-3"
           aria-label="Send message"
         >

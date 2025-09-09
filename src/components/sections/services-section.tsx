@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { SoftwareDevelopmentIcon, DigitalMarketingIcon, UiUxDesignIcon, CloudSolutionsIcon, AiIntegrationIcon, SeoOptimizationIcon } from '../icons';
+import { SoftwareDevelopmentIcon, DigitalMarketingIcon, UiUxDesignIcon, CloudSolutionsIcon, AiIntegrationIcon, SeoOptimizationIcon, VoiceAssistantIcon } from '../icons';
 import { FadeIn } from '../fade-in';
 
 const services = [
@@ -32,6 +32,11 @@ const services = [
     icon: SeoOptimizationIcon,
     title: 'SEO Optimization',
     description: 'Improve your search engine rankings and drive organic traffic to your website.',
+  },
+   {
+    icon: VoiceAssistantIcon,
+    title: 'AI Voice Assistants',
+    description: 'Build and deploy intelligent voice assistants and chatbots for your business.',
   },
 ];
 
