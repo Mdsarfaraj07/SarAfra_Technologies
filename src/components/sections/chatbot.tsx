@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
@@ -119,8 +120,13 @@ const Chatbot = () => {
       const botMessage: Message = { role: 'bot', text: response.response };
       setMessages((prev) => [...prev.slice(0, -1), botMessage]);
 
-      const ttsResponse = await textToSpeech({ text: response.response });
-      playAudio(ttsResponse.audioDataUri);
+      try {
+        const ttsResponse = await textToSpeech({ text: response.response });
+        playAudio(ttsResponse.audioDataUri);
+      } catch (ttsError) {
+        console.error('Text-to-speech failed:', ttsError);
+        // Fail silently and don't play audio if TTS service fails.
+      }
 
     } catch (error) {
       console.error('Error getting response from AI:', error);
