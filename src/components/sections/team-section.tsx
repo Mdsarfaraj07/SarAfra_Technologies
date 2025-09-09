@@ -3,7 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { FadeIn } from '../fade-in';
 
 const teamMembers = [
-  { name: 'Sarfaraj A.', role: 'Founder & CEO', image: { src: 'https://res.cloudinary.com/dzh104biq/image/upload/v1722244199/sarafra-ceo.png', hint: 'man portrait' } },
+  { name: 'Sarfaraj A.', role: 'Founder & CEO', image: { src: '/sarafra-ceo.png', hint: 'man portrait' } },
   { name: 'Frank L.', role: 'Lead Software Architect', image: { src: 'https://picsum.photos/128/128', hint: 'man portrait' } },
   { name: 'Jane Doe', role: 'Head of Digital Marketing', image: { src: 'https://picsum.photos/128/128', hint: 'woman portrait professional' } },
   { name: 'Mike R.', role: 'Senior UI/UX Designer', image: { src: 'https://picsum.photos/128/128', hint: 'man portrait professional' } },
