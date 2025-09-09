@@ -21,7 +21,7 @@ const HeroSection = () => {
         </FadeIn>
         <FadeIn className="md:w-1/2 flex justify-center">
           <Image
-            src="https://picsum.photos/600/400"
+            src="https://picsum.photos/seed/hero/600/400"
             alt="A conceptual image of digital technology and growth."
             data-ai-hint="digital agency laptop phone"
             width={600}

@@ -184,7 +184,7 @@ Total: $${invoiceDetails.totalAmount.toLocaleString()}
                 <div className={cn('text-center', { 'hidden': activeTab !== 'upi' })}>
                     <h3 className="text-xl font-semibold mb-4 text-foreground">Scan to Pay</h3>
                     <div className="flex justify-center mb-6">
-                        <Image src="https://picsum.photos/250/250" alt="Placeholder QR Code" data-ai-hint="qr code" width={200} height={200} className="rounded-lg shadow-md border" />
+                        <Image src="https://picsum.photos/seed/qr/250/250" alt="Placeholder QR Code" data-ai-hint="qr code" width={200} height={200} className="rounded-lg shadow-md border" />
                     </div>
                     <p className="text-muted-foreground mb-2">Or enter your UPI ID:</p>
                     <div className="flex items-center mb-6">

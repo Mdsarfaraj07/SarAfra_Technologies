@@ -8,19 +8,19 @@ const testimonials = [
     quote: '"SarAfra Technologies transformed our online presence. Their team was professional, responsive, and truly understood our vision. The results have been phenomenal."',
     author: 'Alex P.',
     title: 'CEO, TechCorp',
-    avatar: { initial: 'A', src: 'https://picsum.photos/40/40', hint: 'man face' },
+    avatar: { initial: 'A', src: 'https://picsum.photos/seed/alex/40/40', hint: 'man face' },
   },
   {
     quote: '"The digital marketing strategy they implemented for us was a game-changer. We saw a significant increase in traffic and conversions within months."',
     author: 'Maria S.',
     title: 'Marketing Director, Innovate Ltd.',
-    avatar: { initial: 'M', src: 'https://picsum.photos/40/40', hint: 'woman face' },
+    avatar: { initial: 'M', src: 'https://picsum.photos/seed/maria/40/40', hint: 'woman face' },
   },
   {
     quote: '"Their UI/UX design work is top-notch. Our users love the new app interface. It\'s intuitive, clean, and beautiful."',
     author: 'David L.',
     title: 'CTO, Creative Solutions',
-    avatar: { initial: 'D', src: 'https://picsum.photos/40/40', hint: 'professional face' },
+    avatar: { initial: 'D', src: 'https://picsum.photos/seed/david/40/40', hint: 'professional face' },
   },
 ];
 

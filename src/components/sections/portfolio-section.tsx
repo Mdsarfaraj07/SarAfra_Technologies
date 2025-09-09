@@ -6,17 +6,17 @@ const projects = [
   {
     title: 'Project Alpha',
     description: 'A robust e-commerce platform built for a retail brand, featuring a custom CMS and seamless payment integration.',
-    image: { src: 'https://picsum.photos/600/400', alt: 'Screenshot of Project Alpha, an e-commerce website.', hint: 'ecommerce website' },
+    image: { src: 'https://picsum.photos/seed/alpha/600/400', alt: 'Screenshot of Project Alpha, an e-commerce website.', hint: 'ecommerce website' },
   },
   {
     title: 'Project Beta',
     description: 'A data visualization dashboard for a logistics company, providing real-time insights into their supply chain.',
-    image: { src: 'https://picsum.photos/600/400', alt: 'Dashboard view of Project Beta, a data visualization tool.', hint: 'data dashboard' },
+    image: { src: 'https://picsum.photos/seed/beta/600/400', alt: 'Dashboard view of Project Beta, a data visualization tool.', hint: 'data dashboard' },
   },
   {
     title: 'Project Gamma',
     description: 'A mobile-first progressive web app for a health and wellness startup, focused on user engagement and retention.',
-    image: { src: 'https://picsum.photos/600/400', alt: 'Mobile app screenshot of Project Gamma, a health and wellness app.', hint: 'mobile app health' },
+    image: { src: 'https://picsum.photos/seed/gamma/600/400', alt: 'Mobile app screenshot of Project Gamma, a health and wellness app.', hint: 'mobile app health' },
   },
 ];
 
