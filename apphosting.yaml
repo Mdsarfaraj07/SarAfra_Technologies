@@ -14,6 +14,8 @@ runConfig:
   env:
     - variable: GEMINI_API_KEY
       secret: GEMINI_API_KEY
+    - variable: RESEND_API_KEY
+      secret: RESEND_API_KEY
 
 # Required for Genkit to be able to access the Gemini API
 # when deployed to Firebase App Hosting.
