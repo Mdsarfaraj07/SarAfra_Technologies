@@ -26,12 +26,11 @@ const Header = () => {
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
         <a href="#" className="flex items-center space-x-2">
           <Image
-            src="https://picsum.photos/32/32"
+            src="https://storage.googleapis.com/aifirebase/prod/images/theme/62657e05-23e4-411a-a53b-e8574164ce1f.png"
             alt="SarAfra Technologies Logo"
-            data-ai-hint="logo"
             width={32}
             height={32}
-            className="h-8 w-auto rounded-full"
+            className="h-8 w-auto"
           />
           <span className="text-2xl font-bold gradient-text">SarAfra Technologies</span>
         </a>
