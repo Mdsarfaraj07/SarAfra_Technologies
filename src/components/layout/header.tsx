@@ -26,11 +26,12 @@ const Header = () => {
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
         <a href="#" className="flex items-center space-x-2">
           <Image
-            src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/SarAfra_Technologies.width-1000.png"
+            src="https://picsum.photos/32/32"
             alt="SarAfra Technologies Logo"
+            data-ai-hint="logo"
             width={32}
             height={32}
-            className="h-8 w-auto"
+            className="h-8 w-auto rounded-full"
           />
           <span className="text-2xl font-bold gradient-text">SarAfra Technologies</span>
         </a>
