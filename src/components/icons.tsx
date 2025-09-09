@@ -2,7 +2,7 @@ import type { SVGProps } from 'react';
 
 export const SoftwareDevelopmentIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
+    xmlns=""
     className="h-12 w-12 text-accent mb-4 mx-auto"
     fill="none"
     viewBox="0 0 24 24"
